@@ -80,3 +80,30 @@ function js_calendar(){
 };
 
 add_action( 'wp_head', 'js_calendar' );
+
+function scroll_but(){
+	?>
+	<script>
+		jQuery(function($){
+			console.log("hello");
+// 			if ($(window).scrollTop() > 100 || document.documentElement.scrollTop > 100) {
+// 				console.log("hello");
+// 			   $('.scroll-button').css("opacity", "1");
+//   			} else {
+//     			$('.scroll-button').css("opacity", "0");
+//   			}
+
+			$(document).scroll(function() {
+  				if ($(this).scrollTop() >= 200) {
+					$('.scroll-button').css("opacity", "1");
+  				} else {
+   					$('.scroll-button').css("opacity", "0");
+  				}
+
+			});
+		});
+	</script>
+<?php
+};
+
+add_action('wp_head','scroll_but');
